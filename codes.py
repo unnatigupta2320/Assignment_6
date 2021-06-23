@@ -29,10 +29,8 @@ plt.text(n[0] - 1.3, n[1] + 0.3, 'N')
 
 plt.plot(x1, y1, '-', label='$2y = 3x+12$',color='b')
 plt.plot(x, y, '-', label='$3x^2 = 4y$',color='r')
-plt.axvline(x=-2,color='gray',linestyle='--')
-plt.axvline(x=4,color='gray',linestyle='--')
-
-
+plt.axvline(x=4,color='gray',label = 'x=4' ,linestyle='--')
+plt.axvline(x=-2,color='orange',label ='x=-2',linestyle='--')
 
 
 #labelling each points
