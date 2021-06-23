@@ -152,30 +152,32 @@ Find the area enclosed by the parabola $4y=3x^2$ and the line $\myvec{-3&2}\vec{
  4y&=3x^2
  \\
  3x^2-4y&=0
+ \\
+ x^2-\frac{4}{3}y&=0
 \end{align}
 \item Comparing with the standard equation :
 \begin{align}
-\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0 \label{eq1}
 \\
-\vec{V}=\myvec{3&0\\0&0},\vec{u}=\myvec{0\\2},f=0 \label{eqA}
+\vec{V}=\myvec{1&0\\0&0},\vec{u}=\myvec{0\\-\frac{2}{3}},f=0 
 \end{align}
 \item We can find the eigen values corresponding to the $\vec{V}$,
 \begin{align}
-\abs{\vec{V} - \lambda\vec{I}} = \mydet{3-\lambda & 0 \\ 0 & -\lambda} &= 0
+\abs{\vec{V} - \lambda\vec{I}} = \mydet{1-\lambda & 0 \\ 0 & -\lambda} &= 0
 \\
-\implies (3- \lambda)(-\lambda) &= 0
+\implies (1- \lambda)(-\lambda) &= 0
 \end{align}
 $\therefore$ Eigen values are 
 \begin{align}
-\lambda_1 = 0 , \lambda_2 = 3
+\lambda_1 = 0 , \lambda_2 = 1
 \end{align}
-\item Calculating the eigen vectors corresponding to $\lambda_1 = 0 , \lambda_2 = 3$ respectively.
+\item Calculating the eigen vectors corresponding to $\lambda_1 = 0 , \lambda_2 = 1$ respectively.
 \begin{align}
 \vec{V}\vec{x} &= \lambda\vec{x}
 \\
-\myvec{3 & 0 \\ 0 & 0}\vec{x} &=0 \implies \vec{p_1} = \myvec{0 \\ 1}
+\myvec{1 & 0 \\ 0 & 0}\vec{x} &=0 \implies \vec{p_1} = \myvec{0 \\ 1}
 \\
-\myvec{0 & 0 \\ 0 & -3}\vec{x} &=3\vec{x}  \implies \vec{p_2} = \myvec{1 \\ 0}
+\myvec{0 & 0 \\ 0 & -1}\vec{x} &=\vec{x}  \implies \vec{p_2} = \myvec{1 \\ 0}
 \end{align}
 \item By eigen decomposition on $\vec{V}$,
 \begin{align}
@@ -185,14 +187,14 @@ Where,
 \begin{align}
 \vec{P} &= \myvec{\vec{p_1} & \vec{p_2}} = \myvec{0 & 1 \\ 1 & 0}
 \\
-\vec{D} &= \myvec{\lambda_1 & 0 \\ 0 & \lambda_2} =\myvec{0 & 0 \\ 0 & 3} 
+\vec{D} &= \myvec{\lambda_1 & 0 \\ 0 & \lambda_2} =\myvec{0 & 0 \\ 0 & 1} 
 \end{align}
 \item To find the vertex of the parabola ,
 \begin{align} \myvec{\vec{u^T}+\eta\vec{p_1^T}\\\vec{V} }\vec{c} &= \myvec{\vec{-f}\\\eta \vec{p_1} -\vec{u}}
 \\
-\text{where, }  \eta = \vec{u^T}\vec{p_1} = 2
+\text{where, }  \eta = \vec{u^T}\vec{p_1} = \frac{-2}{3}
 \\
-\implies\myvec{0 & 4\\3 & 0 \\0 & 0} \vec{c}&= \myvec{0\\0\\0}
+\implies\myvec{0 & \frac{-4}{3}\\1 & 0 \\0 & 0} \vec{c}&= \myvec{0\\0\\0}
 \end{align}
 \item The above equation implies that,
 \begin{align}    
@@ -201,14 +203,41 @@ Where,
 \item To find the point of intersection:
 \begin{itemize}
     \item Let $\vec{K}$ and $\vec{L}$ are point of intersection.
-    \item The point of contacts are given using:
-\begin{align} \myvec{\vec{u^T}+\kappa\vec{n^T}\\\vec{V} }\vec{q} &= \myvec{\vec{-f}\\\kappa \vec{n} -\vec{u}}
+    \item The given line is:
+\begin{align} 
+\myvec{-3&2}\vec{x}=12
 \\
-\text{where, }  \kappa &= \frac{\vec{p_1^T}\vec{u}}{\vec{p_1^T}\vec{n}} = 1
+\text{or, }2y=3x+12 \label{eq2}
 \end{align}
-\item Putting values from \eqref{eqA} in above equation, we get:
 \begin{align}
+\therefore \vec{x}=\myvec{x\\\frac{12+3x}{2}} \text{satisfies it.}\label{eq3}   
+\end{align}
+\item From \eqref{eq1} we have:
+\begin{align}
+    \vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0
+    \\
+    \vec{x}^T\myvec{1&0\\0&0}\vec{x}+2\myvec{0&\frac{-2}{3}}\vec{x}+0=0
+    \end{align}
+\item Putting \eqref{eq3} in above equation we get:
+\begin{align}
+    \myvec{x&\frac{12+3x}{2}}\myvec{1&0\\0&0}\myvec{x\\\frac{12+3x}{2}}+\myvec{0&\frac{-4}{3}}\myvec{x\\\frac{12+3x}{2}}=0
+    \end{align}
+    \begin{align}
+    &\implies x\myvec{x\\\frac{12+3x}{2}}+\myvec{0&\frac{-4}{3}}\myvec{x\\\frac{12+3x}{2}}=0
+    \\
+    &\implies x^2+\frac{\brak{-4}}{3}\brak{\frac{12+3x}{2}}=0
+    \\
+    &\implies x^2-2x-8=0
+    \\
+    &\implies x=-2,4
+\end{align}
+\item Putting values of x in \eqref{eq2}, we get:
+\begin{align}
+\text{When x = -2}\implies y&=3
+\\
 \implies \vec{K}&= \myvec{-2\\3}  
+\\
+\text{When x = 4},\implies y&=12
 \\
 \implies \vec{L}&= \myvec{4\\12}
 \end{align}
@@ -259,7 +288,7 @@ So, the required area A is \textbf{27 units}
 \numberwithin{figure}{section}
 \begin{figure}[ht]
 \centering
-\includegraphics[width=\columnwidth]{parabola&line.png}
+\includegraphics[width=\columnwidth]{Parabola-Line.png}
 \caption{Plot of the parabola and line}
 \label{Plot of the Parabola and line}
 \end{figure}
