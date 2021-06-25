@@ -157,9 +157,13 @@ Find the area enclosed by the parabola $4y=3x^2$ and the line $\myvec{-3&2}\vec{
 \end{align}
 \item Comparing with the standard equation :
 \begin{align}
-\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0 \label{eq1}
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0 
 \\
 \vec{V}=\myvec{1&0\\0&0},\vec{u}=\myvec{0\\-\frac{2}{3}},f=0 
+\end{align}
+\item So, the equation of parabola is:
+\begin{align}
+\implies \vec{x}^T\myvec{1&0\\0&0}\vec{x}+2\myvec{0&-\frac{2}{3}}\vec{x}=0 \label{eq1} 
 \end{align}
 \item We can find the eigen values corresponding to the $\vec{V}$,
 \begin{align}
@@ -205,39 +209,106 @@ Where,
     \item Let $\vec{K}$ and $\vec{L}$ are point of intersection.
     \item The given line is:
 \begin{align} 
-\myvec{-3&2}\vec{x}=12
+\myvec{-3&2}\vec{x}&=12
 \\
-\text{or, }2y=3x+12 \label{eq2}
+\implies \vec{m}&=\myvec{2\\3}
 \end{align}
-\begin{align}
-\therefore \vec{x}=\myvec{x\\\frac{12+3x}{2}} \text{satisfies it.}\label{eq3}   
-\end{align}
-\item From \eqref{eq1} we have:
-\begin{align}
-    \vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0
-    \\
-    \vec{x}^T\myvec{1&0\\0&0}\vec{x}+2\myvec{0&\frac{-2}{3}}\vec{x}+0=0
-    \end{align}
-\item Putting \eqref{eq3} in above equation we get:
-\begin{align}
-    \myvec{x&\frac{12+3x}{2}}\myvec{1&0\\0&0}\myvec{x\\\frac{12+3x}{2}}+\myvec{0&\frac{-4}{3}}\myvec{x\\\frac{12+3x}{2}}=0
-    \end{align}
-    \begin{align}
-    &\implies \myvec{x&0}\myvec{x\\\frac{12+3x}{2}}+\myvec{0&\frac{-4}{3}}\myvec{x\\\frac{12+3x}{2}}=0
-    \\
-    &\implies x^2+\frac{\brak{-4}}{3}\brak{\frac{12+3x}{2}}=0
-    \\
-    &\implies x^2-2x-8=0
-    \\
-    &\implies x=-2,4
-\end{align}
-\item Putting values of x in \eqref{eq2}, we get:
-\begin{align}
-\text{When x = -2}\implies y&=3
+\item In parametric form Line can be written as:
+\begin{align} 
+L: \vec{x}&=\vec{q}+\mu\vec{m}
 \\
+\vec{x}&=\myvec{-4\\0}+\mu\myvec{2\\3} \label{eq:Line}
+\end{align}
+\item The points of intersection of this line with the parabola in \eqref{eq1} are given by:
+\begin{align}
+\vec{x}_i = \myvec{-4\\0}+\mu_i\myvec{2\\3}
+\end{align}
+%
+where,
+\begin{multline}
+\mu_i = \frac{1}
+{
+\vec{m}^T\vec{V}\vec{m}
+}
+\lbrak{-\vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}}
+\\
+\pm
+{\small
+\rbrak{\sqrt{
+\sbrak{
+\vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}
+}^2
+-
+\brak
+{
+\vec{q}^T\vec{V}\vec{q} + 2\vec{u}^T\vec{q} +f
+}
+\brak{\vec{m}^T\vec{V}\vec{m}}
+}
+}
+}\label{eq:mu_i}
+\end{multline}
+\item Finding $\mu_i$ :
+\begin{enumerate}[label=\alph*.]
+\item Value of $\vec{m}^T\vec{V}\vec{m}$ :
+\begin{align}
+ \vec{m}^T\vec{V}\vec{m}&=\myvec{2&3}\myvec{1&0\\0&0}\myvec{2\\3}
+ \\
+ \vec{m}^T\vec{V}\vec{m}&=\myvec{2&0}\myvec{2\\3}
+ \\
+\vec{m}^T\vec{V}\vec{m}&=4\label{eq:A}
+\end{align}
+\item Value of $
+\vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}$ :
+\begin{align}
+    \vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}&=\myvec{2&3}\brak{\myvec{-4\\0}+\myvec{0\\\frac{-2}{3}}}
+    \\
+    \vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}&=\myvec{2&3}\myvec{-4\\\frac{-2}{3}}
+    \\
+    \vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}&=-10\label{eq:B}
+\end{align}
+\item Value of $\vec{q}^T\vec{V}\vec{q}$:
+\begin{align}
+   \vec{q}^T\vec{V}\vec{q}&= \myvec{-4&0}\myvec{1&0\\0&0}\myvec{-4\\0}
+   \\
+   \vec{q}^T\vec{V}\vec{q}&= \myvec{-4&0}\myvec{-4\\0}
+   \\
+   \vec{q}^T\vec{V}\vec{q}&= 16\label{eq:C}
+\end{align}
+\item Value of:$2\vec{u}^T\vec{q}$:
+\begin{align}
+2\vec{u}^T\vec{q}&=2\myvec{0&\frac{-2}{3}} \myvec{-4\\0}
+\\
+2\vec{u}^T\vec{q}&=0\label{eq:D}
+\end{align}
+\end{enumerate}
+\item Putting values from \eqref{eq:A}, \eqref{eq:B}, \eqref{eq:C}, \eqref{eq:D} in equation \eqref{eq:mu_i}, we get:
+\begin{multline}
+\mu_i = \frac{1}{4}
+\lbrak{-\brak{-10}}
+\pm
+{\small
+\rbrak{\sqrt{
+\sbrak{\brak{-10}}^2-\brak{16 +0+0}\brak{4}}}}
+\end{multline}
+\begin{align}
+\mu_i = \frac{1}{4}
+\brak{10}
+\pm{6}
+\end{align}
+\item So, we get $\mu_1$ and $\mu_2$ as:
+\begin{align}
+\mu_1 = \frac{1}{4}\brak{10-6}
+\\
+\implies \mu_1 = 1
+\\
+\text{Similarly, }\mu_2 = \frac{1}{4}\brak{10+6}
+\\
+\implies \mu_2 =4
+\end{align}
+\item Putting $\mu_1$ and $\mu_2$ in \eqref{eq:Line} we get point of intersection as:
+\begin{align}
 \implies \vec{K}&= \myvec{-2\\3}  
-\\
-\text{When x = 4},\implies y&=12
 \\
 \implies \vec{L}&= \myvec{4\\12}
 \end{align}
@@ -251,16 +322,25 @@ Where,
     \\
     A&= A_1 -A_2 \label{eqAREA}
     \end{align}
-\item For finding area under the line that is $A_1$-
-\textbf{KLMN} is a trapezium. So its area can be given as:
+\item Area under the line 2y=3x+12 i.e, $A_1$-
 \begin{align}
-  A_1 &= MN\times\frac{\brak{KN+ML}}{2} 
-  \\
-   A_1 &= 6\times\frac{\brak{3+12}}{2} 
+  A_1&= \int_{-2}^{4} y dx
+    \\
+    A_1&= \frac{1}{2}\int_{-2}^{4} \brak{3x+12} dx
+    \end{align}
+    \begin{align}
+    A_1= \frac{3}{2}\int_{-2}^{4} x+\frac{1}{2}\int_{-2}^{4}12 dx
+    \end{align}
+    \begin{align}
+    A_1&= \frac{3}{4}\brak{4^2-2^2} +\frac{12}{2}\brak{4+2}
    \\
+    A_1&= \frac{3}{4}\brak{12} +\frac{12}{2}\brak{6}
+    \\
+    A_1&= 9 +36
+    \\
     A_1 &=45 \text{ units} \label{eqB}
 \end{align}
-\item For finding area under the parabola that is $A_2$-
+\item Area under the parabola that is $A_2$-
 \begin{align}
     A_2&= \int_{-2}^{4} y dx
     \\
@@ -285,6 +365,7 @@ Where,
  A &= 27 \text{ units}
 \end{align}
 So, the required area A is \textbf{27 units}
+\item Plot of line and parabola is:
 \numberwithin{figure}{section}
 \begin{figure}[ht]
 \centering
