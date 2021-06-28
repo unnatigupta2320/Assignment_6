@@ -153,75 +153,23 @@ Find the area enclosed by the parabola $4y=3x^2$ and the line $\myvec{-3&2}\vec{
  \\
  3x^2-4y&=0
  \\
- x^2-\frac{4}{3}y&=0
+ x^2-\frac{4}{3}y&=0 \label{eq:given}
 \end{align}
-\item Comparing with the standard equation :
+\begin{lemma}
+If equation of a parabola is:
 \begin{align}
-\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0 
-\\
-\vec{V}=\myvec{1&0\\0&0},\vec{u}=\myvec{0\\-\frac{2}{3}},f=0 
+\vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f=0 \label{eq:parabola}
 \end{align}
-\item So, the equation of parabola is:
+Then its vertex can be calculated as:
+\begin{align} \myvec{\vec{u^T}+\eta\vec{p_1^T}\\\vec{V} }\vec{c} &= \myvec{\vec{-f}\\\eta \vec{p_1} -\vec{u}} \label{eq:vertex}
+\\
+\text{where, }  \eta = \vec{u^T}\vec{p_1}
+\end{align}
+\end{lemma}
+\begin{lemma}
+The points of intersection of \textbf{Line} $L:\vec{x}=\vec{q}+\mu\vec{m}$ with \textbf{parabola},are given by:
 \begin{align}
-\implies \vec{x}^T\myvec{1&0\\0&0}\vec{x}+2\myvec{0&-\frac{2}{3}}\vec{x}=0 \label{eq1} 
-\end{align}
-\item We can find the eigen values corresponding to the $\vec{V}$,
-\begin{align}
-\abs{\vec{V} - \lambda\vec{I}} = \mydet{1-\lambda & 0 \\ 0 & -\lambda} &= 0
-\\
-\implies (1- \lambda)(-\lambda) &= 0
-\end{align}
-$\therefore$ Eigen values are 
-\begin{align}
-\lambda_1 = 0 , \lambda_2 = 1
-\end{align}
-\item Calculating the eigen vectors corresponding to $\lambda_1 = 0 , \lambda_2 = 1$ respectively.
-\begin{align}
-\vec{V}\vec{x} &= \lambda\vec{x}
-\\
-\myvec{1 & 0 \\ 0 & 0}\vec{x} &=0 \implies \vec{p_1} = \myvec{0 \\ 1}
-\\
-\myvec{0 & 0 \\ 0 & -1}\vec{x} &=\vec{x}  \implies \vec{p_2} = \myvec{1 \\ 0}
-\end{align}
-\item By eigen decomposition on $\vec{V}$,
-\begin{align}
-\vec{V}=\vec{P}\vec{D}\vec{P}^T
-\end{align}
-Where,
-\begin{align}
-\vec{P} &= \myvec{\vec{p_1} & \vec{p_2}} = \myvec{0 & 1 \\ 1 & 0}
-\\
-\vec{D} &= \myvec{\lambda_1 & 0 \\ 0 & \lambda_2} =\myvec{0 & 0 \\ 0 & 1} 
-\end{align}
-\item To find the vertex of the parabola ,
-\begin{align} \myvec{\vec{u^T}+\eta\vec{p_1^T}\\\vec{V} }\vec{c} &= \myvec{\vec{-f}\\\eta \vec{p_1} -\vec{u}}
-\\
-\text{where, }  \eta = \vec{u^T}\vec{p_1} = \frac{-2}{3}
-\\
-\implies\myvec{0 & \frac{-4}{3}\\1 & 0 \\0 & 0} \vec{c}&= \myvec{0\\0\\0}
-\end{align}
-\item The above equation implies that,
-\begin{align}    
-   \vec{c} &= \myvec{0 \\ 0}
-\end{align}
-\item To find the point of intersection:
-\begin{itemize}
-    \item Let $\vec{K}$ and $\vec{L}$ are point of intersection.
-    \item The given line is:
-\begin{align} 
-\myvec{-3&2}\vec{x}&=12
-\\
-\implies \vec{m}&=\myvec{2\\3}
-\end{align}
-\item In parametric form Line can be written as:
-\begin{align} 
-L: \vec{x}&=\vec{q}+\mu\vec{m}
-\\
-\vec{x}&=\myvec{-4\\0}+\mu\myvec{2\\3} \label{eq:Line}
-\end{align}
-\item The points of intersection of this line with the parabola in \eqref{eq1} are given by:
-\begin{align}
-\vec{x}_i = \myvec{-4\\0}+\mu_i\myvec{2\\3}
+\vec{x}_i = \vec{q}+\mu_i\vec{m}
 \end{align}
 %
 where,
@@ -248,55 +196,71 @@ where,
 }
 }\label{eq:mu_i}
 \end{multline}
-\item Finding $\mu_i$ :
-\begin{enumerate}[label=\alph*.]
-\item Value of $\vec{m}^T\vec{V}\vec{m}$ :
+\end{lemma}
+\begin{lemma}
+\label{lemma3}
+The area between line $\vec{l}$ :$y_l=mx+c$ and the parabola $\vec{P}$ :$y_p=ax^2$ can be given as:
 \begin{align}
- \vec{m}^T\vec{V}\vec{m}&=\myvec{2&3}\myvec{1&0\\0&0}\myvec{2\\3}
- \\
- \vec{m}^T\vec{V}\vec{m}&=\myvec{2&0}\myvec{2\\3}
- \\
-\vec{m}^T\vec{V}\vec{m}&=4\label{eq:A}
+\text{Area =} \int y_l dx-\int y_p dx
 \end{align}
-\item Value of $
-\vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}$ :
+\end{lemma}
+\item Comparing \eqref{eq:given} with \eqref{eq:parabola} we get :
 \begin{align}
-    \vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}&=\myvec{2&3}\brak{\myvec{-4\\0}+\myvec{0\\\frac{-2}{3}}}
-    \\
-    \vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}&=\myvec{2&3}\myvec{-4\\\frac{-2}{3}}
-    \\
-    \vec{m}^T\brak{\vec{V}\vec{q}+\vec{u}}&=-10\label{eq:B}
+\vec{V}=\myvec{1&0\\0&0},\vec{u}=\myvec{0\\-\frac{2}{3}},f=0 \label{eq:v}
 \end{align}
-\item Value of $\vec{q}^T\vec{V}\vec{q}$:
+\item So, the equation of parabola is:
 \begin{align}
-   \vec{q}^T\vec{V}\vec{q}&= \myvec{-4&0}\myvec{1&0\\0&0}\myvec{-4\\0}
-   \\
-   \vec{q}^T\vec{V}\vec{q}&= \myvec{-4&0}\myvec{-4\\0}
-   \\
-   \vec{q}^T\vec{V}\vec{q}&= 16\label{eq:C}
+\implies \vec{x}^T\myvec{1&0\\0&0}\vec{x}+2\myvec{0&-\frac{2}{3}}\vec{x}=0 \label{eq1} 
 \end{align}
-\item Value of:$2\vec{u}^T\vec{q}$:
+\item We can find the eigen values corresponding to the $\vec{V}$,
 \begin{align}
-2\vec{u}^T\vec{q}&=2\myvec{0&\frac{-2}{3}} \myvec{-4\\0}
+\abs{\vec{V} - \lambda\vec{I}} = \mydet{1-\lambda & 0 \\ 0 & -\lambda} &= 0
 \\
-2\vec{u}^T\vec{q}&=0\label{eq:D}
+\implies (1- \lambda)(-\lambda) &= 0
 \end{align}
-\end{enumerate}
-\item Putting values from \eqref{eq:A}, \eqref{eq:B}, \eqref{eq:C}, \eqref{eq:D} in equation \eqref{eq:mu_i}, we get:
-\begin{multline}
-\mu_i = \frac{1}{4}
-\lbrak{-\brak{-10}}
-\pm
-{\small
-\rbrak{\sqrt{
-\sbrak{\brak{-10}}^2-\brak{16 +0+0}\brak{4}}}}
-\end{multline}
+$\therefore$ Eigen values are 
+\begin{align}
+\lambda_1 = 0 , \lambda_2 = 1
+\end{align}
+\item Calculating the eigen vectors corresponding to $\lambda_1 = 0 , \lambda_2 = 1$ respectively.
+\begin{align}
+\vec{V}\vec{x} &= \lambda\vec{x}
+\\
+\myvec{1 & 0 \\ 0 & 0}\vec{x} &=0 \implies \vec{p_1} = \myvec{0 \\ 1}
+\\
+\myvec{0 & 0 \\ 0 & -1}\vec{x} &=\vec{x}  \implies \vec{p_2} = \myvec{1 \\ 0}
+\end{align}
+\item Using equation \eqref{eq:vertex} the vertex of the parabola can be given as,
+\begin{align} \myvec{\vec{u^T}+\eta\vec{p_1^T}\\\vec{V} }\vec{c} &= \myvec{\vec{-f}\\\eta \vec{p_1} -\vec{u}}
+\\
+\text{where, }  \eta = \vec{u^T}\vec{p_1} = \frac{-2}{3}
+\\
+\implies\myvec{0 & \frac{-4}{3}\\1 & 0 \\0 & 0} \vec{c}&= \myvec{0\\0\\0}
+\end{align}
+\item So, the vertex of parabola is:
+\begin{align}    
+   \vec{c} &= \myvec{0 \\ 0}
+\end{align}
+\item To find the point of intersection:
+\begin{itemize}
+    \item Let $\vec{K}$ and $\vec{L}$ are point of intersection.
+    \item The given line is:
+\begin{align} 
+\myvec{-3&2}\vec{x}&=12
+\end{align}
+\item In parametric form line can be written as:
+\begin{align} 
+L: \vec{x}&=\vec{q}+\mu\vec{m}
+\\
+\vec{x}&=\myvec{-4\\0}+\mu\myvec{2\\3} \label{eq:q}
+\end{align}
+\item Putting values of $\vec{V}$, $\vec{q}$ from \eqref{eq:v} and $\vec{m}$ and $\vec{q}$ from \eqref{eq:q} in equation \eqref{eq:mu_i}we get:
 \begin{align}
 \mu_i = \frac{1}{4}
 \brak{10}
 \pm{6}
 \end{align}
-\item So, we get $\mu_1$ and $\mu_2$ as:
+\item Now we can get $\mu_1$ and $\mu_2$ as:
 \begin{align}
 \mu_1 = \frac{1}{4}\brak{10-6}
 \\
@@ -306,15 +270,14 @@ where,
 \\
 \implies \mu_2 =4
 \end{align}
-\item Putting $\mu_1$ and $\mu_2$ in \eqref{eq:Line} we get point of intersection as:
+\item Putting $\mu_1$ and $\mu_2$ in \eqref{eq:q} we get point of intersection as:
 \begin{align}
 \implies \vec{K}&= \myvec{-2\\3}  
 \\
 \implies \vec{L}&= \myvec{4\\12}
 \end{align}
 \end{itemize}
-\item For finding area enclosed by parabola and line:
-  Area required,
+\item Using Lemma \eqref{lemma3} area enclosed by parabola and line can be given as:
 \begin{align}
    A&= \text{Area under line} - \text{Area under parabola}
      \\
